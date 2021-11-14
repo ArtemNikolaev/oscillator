@@ -24,8 +24,79 @@
 
 <body>
 
+  <section class="oscillator">
+    <header>Oscillator</header>
+
+    <div>
+      <input class="frequency"
+             type="range" name="frequency "
+             min="16" max="1000" value="440">
+      <label>Frequency</label>
+    </div>
+
+    <div>
+      <input class="detune"
+             type="range" name="detune "
+             min="-400" max="400" value="0">
+      <label>detune</label>
+    </div>
+
+    <select class="type" name="type">
+      <option value="sine">Sine</option>
+      <option value="square">Square</option>
+      <option value="sawtooth">Sawtooth</option>
+      <option value="triangle">Triangle</option>
+      // todo: realize custom algorithm
+      <option value="custom" disabled>custom</option>
+    </select>
+  </section>
+
   <!-- Add your site or application content here -->
   <p>Hello world! This is HTML5 Boilerplate.</p>
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+
+
+
+  <script>
+    // create web audio api context
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    // create Oscillator node
+    const oscillator = audioCtx.createOscillator();
+
+    oscillator.type = 'sine';
+    oscillator.frequency.setValueAtTime(440, audioCtx.currentTime); // value in hertz
+    oscillator.connect(audioCtx.destination);
+
+    document.querySelector("#start").addEventListener('click',() => {
+      console.log('start');
+      oscillator.start();
+    })
+    document.querySelector("#stop").addEventListener('click', () => {
+      console.log('stop');
+      oscillator.stop();
+    })
+
+    document
+      .querySelector('.oscillator .type')
+      .addEventListener('change', (event) => {
+        oscillator.type = event.target.value;
+      });
+
+    document
+      .querySelector('.oscillator .frequency')
+      .addEventListener('change',(event) => {
+        oscillator.frequency.setValueAtTime(event.target.value, audioCtx.currentTime)
+      });
+
+    document
+      .querySelector('.oscillator .detune')
+      .addEventListener('change',(event) => {
+        oscillator.detune.setValueAtTime(event.target.value, audioCtx.currentTime)
+      });
+  </script>
+
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
