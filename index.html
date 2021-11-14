@@ -28,20 +28,21 @@
     <header>Oscillator</header>
 
     <div>
+      <label>Frequency</label>
       <input class="frequency"
              type="range" name="frequency "
              min="16" max="1000" value="440">
-      <label>Frequency</label>
     </div>
 
     <div>
+      <label>Detune</label>
       <input class="detune"
              type="range" name="detune "
              min="-400" max="400" value="0">
-      <label>detune</label>
     </div>
 
     <select class="type" name="type">
+      <label>Type</label>
       <option value="sine">Sine</option>
       <option value="square">Square</option>
       <option value="sawtooth">Sawtooth</option>
@@ -70,11 +71,9 @@
     oscillator.connect(audioCtx.destination);
 
     document.querySelector("#start").addEventListener('click',() => {
-      console.log('start');
       oscillator.start();
     })
     document.querySelector("#stop").addEventListener('click', () => {
-      console.log('stop');
       oscillator.stop();
     })
 
@@ -86,13 +85,13 @@
 
     document
       .querySelector('.oscillator .frequency')
-      .addEventListener('change',(event) => {
+      .addEventListener('input',(event) => {
         oscillator.frequency.setValueAtTime(event.target.value, audioCtx.currentTime)
       });
 
     document
       .querySelector('.oscillator .detune')
-      .addEventListener('change',(event) => {
+      .addEventListener('input',(event) => {
         oscillator.detune.setValueAtTime(event.target.value, audioCtx.currentTime)
       });
   </script>

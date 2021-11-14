@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2021-11-15
+### Added
+- handle all `frequency` and `detune` value changes
+- some UI changes
+
 ## [0.2.0] - 2021-11-14
 ### Added
 - basic oscillator func
@@ -18,7 +23,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - [HTML5 Boilerplate](https://html5boilerplate.com)
 
-[Unreleased]: https://github.com/ArtemNikolaev/oscillator/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/ArtemNikolaev/oscillator/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/ArtemNikolaev/oscillator/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/ArtemNikolaev/oscillator/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/ArtemNikolaev/oscillator/compare/v0.0.1...v0.1.0
 [0.0.1]: https://github.com/ArtemNikolaev/oscillator/releases/tag/v0.0.1
